@@ -125,13 +125,13 @@ class GameManager:
 
                     # Get mouseclick location
                     try:
-                        click_location_name = self.geolocator.reverse(player.guesses[-1][::-1], zoom=8, language='en')
+                        click_location_name = self.geolocator.reverse(player.guesses[-1][::-1], zoom=6, language='en')
                     except:
                         click_location_name = "Timeout"
 
-                    result_strings.append(f'{player.name}: Distance = {player.scores[-1]:.0f} km, Score = {sum(player.scores):.0f}\nYou clicked at {click_location_name}')
+                    result_strings.append(f'{player.name}: Distance = {player.scores[-1]:.0f} km, Score = {sum(player.scores):.0f}   You clicked at {click_location_name}')
 
-                self.ax.set_title('\n\n'.join(result_strings))
+                self.ax.set_title('\n'.join(result_strings))
             self.fig.canvas.draw()
 
         else:
