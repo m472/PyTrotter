@@ -48,7 +48,7 @@ class GameManager:
         if location is not None:
             return location
         else:
-            raise Exception(f"Location for '{city}' not found")
+            raise Exception(f"Location for '{query}' not found")
 
     def start(self):
         self.next_round()
