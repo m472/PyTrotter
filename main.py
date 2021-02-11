@@ -93,6 +93,7 @@ class GameManager:
             self.fig.canvas.draw()
 
     def set_ax_title(self):
+        if self.round < len(self.cities):
             self.ax.set_title(f'Player {self.current_player.name}\nRound {self.round + 1}:   {self.cities[self.round]}')
 
     def onclick(self, event):
