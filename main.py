@@ -44,7 +44,7 @@ class GameManager:
         return self.players[self.current_player_index % len(self.players)]
 
     def geocode(self, query):
-        location = self.geolocator.geocode(query)
+        location = self.geolocator.geocode(query, language='en')
         if location is not None:
             return location
         else:
