@@ -19,13 +19,16 @@ class Player:
 
 
 class GameManager:
-    def __init__(self, cities, player_names, num_rounds, num_levels, colors=None):
+    def __init__(self, cities, player_names, num_rounds, num_levels, show_guesses, colors=None):
         self.num_levels = num_levels
         self.num_rounds = num_rounds
 
         if colors is None:
             cmap = matplotlib.cm.get_cmap('tab10')
             colors = [cmap(i) for i in range(len(player_names))]
+
+        self.show_guesses = show_guesses
+
         self.players = [Player(name, color) for name, color in zip(player_names, colors)]
         self.geolocator = geopy.geocoders.Nominatim(user_agent='pytrotter')
         self.cities = sample(cities, num_rounds * self.num_levels)
@@ -96,28 +99,33 @@ class GameManager:
         if self.round < len(self.cities):
             self.ax.set_title(f'Player {self.current_player.name}\nRound {self.round + 1}:   {self.cities[self.round]}')
 
+    def draw_last_guess(self, player):
+        self.ax.plot(player.guesses[-1][0], player.guesses[-1][1],
+                     marker='o', color=player.color,
+                     transform=ccrs.Geodetic())
+
     def onclick(self, event):
         if self.current_player_index < len(self.players):
             coords = ccrs.PlateCarree().transform_point(event.xdata, event.ydata, self.ax.projection)
             self.current_player.guesses.append(coords)
+            if self.show_guesses:
+                self.draw_last_guess(self.current_player)
 
-            self.ax.plot(event.xdata, event.ydata, marker='o', color=self.current_player.color)
             self.current_player_index += 1
 
             self.set_ax_title()
             self.ax.set_global()
+
 
             # check if this player was the last
             if self.current_player_index >= len(self.players):
                 self.ax.set_global()
                 result_strings = []
                 for player in self.players:
+                    self.draw_last_guess(player)
                     self.ax.plot([player.guesses[-1][0], self.correct_location.longitude],
                                  [player.guesses[-1][1], self.correct_location.latitude],
-                                 marker=None, color=player.color,
-                                 transform=ccrs.Geodetic())
-                    self.ax.plot(self.correct_location.longitude, 
-                                 self.correct_location.latitude, 'g+',
+                                 marker=' ', color=player.color,
                                  transform=ccrs.Geodetic())
 
                     correct_coords = (self.correct_location.longitude, self.correct_location.latitude)
@@ -133,6 +141,11 @@ class GameManager:
                     result_strings.append(f'{player.name}: Distance = {player.scores[-1]:.0f} km, Score = {sum(player.scores):.0f}   You clicked at {click_location_name}')
 
                 self.ax.set_title('\n'.join(result_strings))
+
+                # Draw correct location
+                self.ax.plot(self.correct_location.longitude, 
+                             self.correct_location.latitude, 'g+',
+                             transform=ccrs.Geodetic())
             self.fig.canvas.draw()
 
         else:
@@ -153,11 +166,12 @@ if __name__ == '__main__':
     parser.add_argument('--cities', default='Capitals.txt')
     parser.add_argument('--rounds', type=int, default=3, help='number of rounds per level and player')
     parser.add_argument('--levels', type=level_type, default=3, help='number levels')
+    parser.add_argument('--show-guesses', action='store_true', help='show guesses by other players')
     parser.add_argument('players', nargs='+', help='names of the players')
     args = parser.parse_args()
 
     with open(args.cities) as f:
         cities = [line.strip() for line in f.readlines() if not line.isspace()]
 
-    game = GameManager(cities, args.players, args.rounds, args.levels)
+    game = GameManager(cities, args.players, args.rounds, args.levels, args.show_guesses)
     game.start()
