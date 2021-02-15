@@ -15,7 +15,8 @@ class GameManager:
         self.cities = sample(cities, self.num_rounds * self.num_levels)
 
         self.geolocator = geopy.geocoders.Nominatim(user_agent='pytrotter')
-        self.locations = [self.geolocator.geocode(city) for city in self.cities]
+
+        self.locations = [self.geocode(city) for city in self.cities]
 
         self.was_clicked = False
         self.scores = []
@@ -26,6 +27,13 @@ class GameManager:
         self.fig.canvas.mpl_connect('button_press_event', self.onclick)
         self.correct_location = None
         self.round = 0
+
+    def geocode(self, query):
+        location = self.geolocator.geocode(query)
+        if location is not None:
+            return location
+        else:
+            raise Exception(f"Location for '{city}' not found")
 
     def start(self):
         self.next_round()
