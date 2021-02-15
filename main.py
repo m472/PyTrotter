@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
-from geopy.geocoders import Nominatim
 from random import sample
 from cartopy import crs as ccrs
+import geopy
 import cartopy.geodesic as gd
 import cartopy
 import matplotlib
@@ -14,8 +14,8 @@ class GameManager:
         self.num_rounds = num_rounds
         self.cities = sample(cities, self.num_rounds * self.num_levels)
 
-        geolocator = Nominatim(user_agent='globetr')
-        self.locations = [geolocator.geocode(city) for city in self.cities]
+        self.geolocator = geopy.geocoders.Nominatim(user_agent='pytrotter')
+        self.locations = [self.geolocator.geocode(city) for city in self.cities]
 
         self.was_clicked = False
         self.scores = []
@@ -52,9 +52,9 @@ class GameManager:
             self.round += 1
         else:
             plt.close()
-            print(self.scores)
             plt.plot(self.scores, color='blue', marker='o', linestyle='')
             plt.title(f'Final Score: {sum(self.scores):.0f}')
+            plt.show()
 
     def onclick(self, event):
         if not self.was_clicked:
@@ -71,7 +71,11 @@ class GameManager:
             correct_coords = (self.correct_location.longitude, self.correct_location.latitude)
             distance_km = gd.Geodesic().inverse(coords, correct_coords).base[0, 0] / 1000
             self.scores.append(distance_km)
-            self.ax.set_title(f'Distance: {distance_km:.0f} km, Score: {sum(self.scores):.0f}')
+
+            # Get mouseclick location
+            click_location_name = self.geolocator.reverse(coords[::-1], zoom=8, language='en')
+
+            self.ax.set_title(f'Distance: {distance_km:.0f} km, Score: {sum(self.scores):.0f}\nYou clicked at {click_location_name}')
             self.fig.canvas.draw()
             self.was_clicked = True
         else:
@@ -79,8 +83,9 @@ class GameManager:
             self.was_clicked = False
 
 
-with open('Capitals.txt') as f:
-    cities = [line.strip() for line in f.readlines()]
+if __name__ == '__main__':
+    with open('Capitals.txt') as f:
+        cities = [line.strip() for line in f.readlines()]
 
-game = GameManager(cities, 3)
-game.start()
+    game = GameManager(cities, 3)
+    game.start()
