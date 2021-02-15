@@ -53,7 +53,7 @@ class GameManager:
         plt.cla()
         if self.round < len(self.cities):
             self.correct_location = self.locations[self.round]
-            level = self.round // self.num_levels
+            level = self.round // self.num_rounds
             self.draw_level(level)
             self.ax.set_title(f'Round {self.round + 1}:   {self.cities[self.round]}')
             self.fig.canvas.draw()
