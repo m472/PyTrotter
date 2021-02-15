@@ -1,0 +1,253 @@
+Abidjan
+Yamoussoukro
+Abu Dhabi
+Abuja
+Accra
+Adamstown, Pitcairn Islands
+Addis Ababa
+Aden
+Sana'a
+Algiers
+Alofi
+Amman
+Amsterdam
+The Hague
+Andorra la Vella
+Ankara
+Antananarivo
+Apia
+Ashgabat
+Asmara
+Asunción
+Athens
+Avarua
+Baghdad
+Baku
+Bamako
+Bandar Seri Begawan
+Bangkok
+Bangui
+Banjul
+Basseterre
+Beijing
+Beirut
+Belgrade
+Belmopan
+Berlin
+Bern
+Bishkek
+Bissau
+Bloemfontein
+Cape Town
+Pretoria
+Bogotá
+Brades
+Plymouth, Montserrat
+Brasília
+Bratislava
+Brazzaville
+Bridgetown
+City of Brussels
+Bucharest
+Budapest
+Buenos Aires
+Cairo
+Canberra
+Caracas
+Castries
+Cetinje
+Podgorica
+Charlotte Amalie, U.S. Virgin Islands
+Chișinău
+Cockburn Town
+Colombo
+Sri Jayawardenepura Kotte
+Conakry
+Copenhagen
+Cotonou
+Porto-Novo
+Dakar
+Damascus
+Dar es Salaam
+Dodoma
+Dhaka
+Dili
+Djibouti
+Doha
+Douglas, Isle of Man
+Dublin
+Dushanbe
+Tifariti
+Flying Fish Cove
+Freetown
+Funafuti
+Gaborone
+George Town, Cayman Islands
+Georgetown, Ascension Island
+Georgetown, Guyana
+Gibraltar
+Gitega
+Bujumbura
+Guatemala City
+Gustavia, Saint Barthélemy
+Hagåtña
+Hamilton, Bermuda
+Hanoi
+Harare
+Hargeisa
+Havana
+Helsinki
+Honiara
+Islamabad
+Jakarta
+Jamestown, Saint Helena
+Jerusalem
+Ramallah
+Juba
+Kabul
+Kampala
+Kathmandu
+Khartoum
+Kigali
+King Edward Point
+Kingston, Jamaica
+Kingston, Norfolk Island
+Kingstown, Saint Vincent and the Grenadines
+Kinshasa
+Kuala Lumpur
+Putrajaya
+Kuwait City
+Kyiv
+La Paz
+Sucre
+Libreville
+Lilongwe
+Lima
+Lisbon
+Ljubljana
+Lobamba
+Mbabane
+Lomé
+London
+Luanda
+Lusaka
+Luxembourg
+Madrid
+Majuro
+Malabo
+Malé
+Managua
+Manama
+Manila
+Maputo
+Mariehamn
+Marigot, Saint Martin
+Maseru
+Mata Utu
+Mexico City
+Minsk
+Mogadishu
+Municipality of Monaco
+Monrovia
+Montevideo
+Moroni, Comoros
+Moscow
+Muscat, Oman
+Nairobi
+Nassau, Bahamas
+Naypyidaw
+N'Djamena
+New Delhi
+Ngerulmud
+Niamey
+Nicosia
+Nouakchott
+Nouméa
+Nukuʻalofa
+Nur-Sultan
+Nuuk
+Oranjestad, Aruba
+Oslo
+Ottawa
+Ouagadougou
+Pago Pago
+Palikir
+Panama City, Panama
+Papeete
+Paramaribo
+Paris
+Philipsburg, Sint Maarten
+Phnom Penh
+Port Louis
+Port Moresby
+Port Vila
+Port-au-Prince
+Port of Spain
+Prague
+Praia
+Pristina
+Pyongyang
+Quito
+Rabat
+Reykjavík
+Riga
+Riyadh
+Road Town
+Rome
+Roseau
+Saipan
+San José, Costa Rica
+San Juan, Puerto Rico
+City of San Marino
+San Salvador
+Santiago
+Valparaíso
+Santo Domingo
+São Tomé
+Sarajevo
+Seoul
+Singapore
+Skopje
+Sofia
+South Tarawa
+St. George's, Grenada
+St. Helier
+St. John's, Antigua and Barbuda
+St. Peter Port
+St. Pierre, Saint-Pierre and Miquelon
+Stanley, Falkland Islands
+Stepanakert
+Stockholm
+Sukhumi
+Suva
+Taipei
+Tallinn
+Tashkent
+Tbilisi
+Tegucigalpa
+Tehran
+Thimphu
+Tirana
+Tokyo
+Tórshavn
+Tripoli
+Tskhinvali
+Tunis
+Ulaanbaatar
+Vaduz
+Valletta
+The Valley, Anguilla
+Vatican City
+Victoria, Seychelles
+Vienna
+Vientiane
+Vilnius
+Warsaw
+Washington, D.C.
+Wellington
+Willemstad
+Windhoek
+Yaoundé
+Yaren District|Yaren
+Yerevan
+Zagreb
