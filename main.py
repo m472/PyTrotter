@@ -124,7 +124,10 @@ class GameManager:
                     player.scores.append(distance_km)
 
                     # Get mouseclick location
-                    click_location_name = self.geolocator.reverse(player.guesses[-1][::-1], zoom=8, language='en')
+                    try:
+                        click_location_name = self.geolocator.reverse(player.guesses[-1][::-1], zoom=8, language='en')
+                    except:
+                        click_location_name = "Timeout"
 
                     result_strings.append(f'{player.name}: Distance = {player.scores[-1]:.0f} km, Score = {sum(player.scores):.0f}\nYou clicked at {click_location_name}')
 
